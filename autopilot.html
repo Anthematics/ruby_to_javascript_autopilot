@@ -8,17 +8,18 @@
 </head>
 <body>
 	<script>
-		
-	   cars = []
 
 		function getNewCar() {
-			    car = {
+			    let car = {
 				city: "Toronto",
 				passengers: 0,
 				gas: 100,
 			}
 		
 		};
+
+ 		let cars = []
+		 
 //did not use a let or const for car as this makes it a global variable i can access in other functions.
 		function addCar(cars,newCar) {
 			cars.push(newCar)
