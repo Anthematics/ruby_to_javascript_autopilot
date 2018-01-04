@@ -8,7 +8,7 @@
 </head>
 <body>
 	<script>
-	let cars = []
+		var cars = []
 
 		function getNewCar() {
 			    car = {
@@ -34,10 +34,15 @@
 			switch (car.city) {
 				case 'Toronto':
 					return 'Mississauga'
+					break;
+					
 				case 'Mississauga':
 					return 'London'
+					break;
+
 				case 'London':
 					return 'Toronto'
+					break;
 			};
 		}
 
@@ -52,11 +57,11 @@
 		}
 
 		function drive(car,cityDistance) {
-			if (car.gas <= cityDistance){ 
+			if (gas <= cityDistance){ 
 			 car.fillUpGas		 
 			} else {
-			 car.city = getDestination()
-			 car.gas -= cityDistance()
+			 city = getDestination()
+			 gas -= cityDistance()
 			}	
 		};
 
@@ -68,6 +73,21 @@
 		
 		function act(car) {
 			distanceBetweenCities = 50
+
+			if (gas < 20) {
+				fillUpGas(car)
+			}
+			
+			if(passengers < 3){
+			pickupPassenger(car)
+			}
+
+			if (gas < distanceBetweenCities) {
+				fillUpGas(car)
+			}
+			droveTo = drive(car,distanceBetweenCities)
+			passengersDropped = dropOffPassengers(car)
+			console.log(`"${droveTo} ${passengersDropped}"`)
 		}
 	
 	</script>
