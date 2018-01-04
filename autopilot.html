@@ -9,6 +9,7 @@
 <body>
 	<script>
 		
+	   cars = []
 
 		function getNewCar() {
 			    car = {
@@ -19,9 +20,9 @@
 		
 		};
 //did not use a let or const for car as this makes it a global variable i can access in other functions.
-		function addCar(newCar) {
-			fleetOfCars.push(car)
-			console.log(`Adding new cars fleet size is now ${cars}`) ``
+		function addCar(cars,newCar) {
+			cars.push(newCar)
+			console.log(`Adding new cars fleet size is now ${cars}`)
 		};
 
 		function pickupPassenger(car) {
@@ -46,10 +47,10 @@
 			};
 		}
 
-		function fillUpGas(car) {
+		function fillUpGas(car){
 			let oldGas = car.gas
 			car.gas = 100
-			console.log(`filled up to ${car.gas}`)
+			return`Filled up to ${get_gas_display(car.gas)} on gas from ${get_gas_display(oldGas)}`
 		}
 		
 		function getGasDisplay(gas){
@@ -58,10 +59,10 @@
 
 		function drive(car,cityDistance) {
 			if (gas <= cityDistance){ 
-			 car.fillUpGas		 
+		    	car.fillUpGas		 
 			} else {
-			 city = getDestination()
-			 gas -= cityDistance()
+				city = getDestination()
+				gas -= cityDistance()
 			}	
 		};
 
@@ -72,25 +73,26 @@
 		}
 		
 		function act(car) {
+			
 			distanceBetweenCities = 50
-
 			if (gas < 20) {
 				fillUpGas(car)
 			}
 			
 			if(passengers < 3){
-			pickupPassenger(car)
+				pickupPassenger(car)
 			}
 
 			if (gas < distanceBetweenCities) {
 				fillUpGas(car)
 			}
+
 			droveTo = drive(car,distanceBetweenCities)
 			passengersDropped = dropOffPassengers(car)
-			console.log(`"${droveTo} ${passengersDropped}"`)
+			return`"${droveTo} ${passengersDropped}"`
 		}
 	
-		function commandFleet(){
+		function commandFleet(car){
 			for (car of cars); {
 				const action = act(car)
 				// console.log(`car `)?? ADD LATER ???!
@@ -98,13 +100,14 @@
 			console.log('---')	
 		}
 
-		function addOneCarPerDay(cars,numDays = 10)
-			for (day of days) {
-				newCar = getNewCar
+		function addOneCarPerDay(cars,numDays) {
+			for (let i=0; i < numDays; i++)  {
+				const newCar = getNewCar
 				console.log(addCar(newCar))
 				commandFleet(cars)
-			}	
-let fleetOfCars = []
+			}
+		}	
+
 addOneCarPerDay(cars,10)
 
 	</script>
