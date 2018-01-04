@@ -8,7 +8,7 @@
 </head>
 <body>
 	<script>
-		var cars = []
+		
 
 		function getNewCar() {
 			    car = {
@@ -20,7 +20,7 @@
 		};
 //did not use a let or const for car as this makes it a global variable i can access in other functions.
 		function addCar(newCar) {
-			cars.push(car)
+			fleetOfCars.push(car)
 			console.log(`Adding new cars fleet size is now ${cars}`) ``
 		};
 
@@ -90,6 +90,23 @@
 			console.log(`"${droveTo} ${passengersDropped}"`)
 		}
 	
+		function commandFleet(){
+			for (car of cars); {
+				const action = act(car)
+				// console.log(`car `)?? ADD LATER ???!
+			}
+			console.log('---')	
+		}
+
+		function addOneCarPerDay(cars,numDays = 10)
+			for (day of days) {
+				newCar = getNewCar
+				console.log(addCar(newCar))
+				commandFleet(cars)
+			}	
+let fleetOfCars = []
+addOneCarPerDay(cars,10)
+
 	</script>
 </body>
 </html>
