@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+	let cars = []
+
+		function getNewCar() {
+			    car = {
+				city: "Toronto",
+				passengers: 0,
+				gas: 100,
+			}
+		
+		};
+//did not use a let or const for car as this makes it a global variable i can access in other functions.
+		function addCar(newCar) {
+			cars.push(car)
+			console.log(`Adding new cars fleet size is now ${cars}`) ``
+		};
+
+		function pickupPassenger(car) {
+			car.passengers++;
+			car.gas -= 10;
+			console.log(`picked up passenger car now has ${passengers} passengers`)
+		};
+
+		function getDestination(car) {
+			switch (car.city) {
+				case 'Toronto':
+					return 'Mississauga'
+				case 'Mississauga':
+					return 'London'
+				case 'London':
+					return 'Toronto'
+			};
+		}
+
+		function fillUpGas(car) {
+			let oldGas = car.gas
+			car.gas = 100
+			console.log(`filled up to ${car.gas}`)
+		}
+		
+		function getGasDisplay(gas){
+			'${gas}'
+		}
+
+		function drive(car,cityDistance) {
+			if (car.gas <= cityDistance){ 
+			 car.fillUpGas		 
+			} else {
+			 car.city = getDestination()
+			 car.gas -= cityDistance()
+			}	
+		};
+
+		function dropOffPassengers(car){
+			previousPassengers = car.passengers
+			car.passengers = 0
+			`Dropped off ${previousPassengers} passengers`
+		}
+		
+		function act(car) {
+			distanceBetweenCities = 50
+		}
+	
+	</script>
+</body>
+</html>
